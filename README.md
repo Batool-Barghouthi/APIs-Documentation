@@ -89,8 +89,9 @@ Triggers the underwriting workflow automatically.
   }
 }
 ```
-```json
+
 Success Response
+```json
 {
   "Status": "S",
   "code": 0,
