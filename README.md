@@ -111,7 +111,7 @@ Success Response
 }
 ```
  
-Error Response
+## Error Response
 ```json
 
 {
