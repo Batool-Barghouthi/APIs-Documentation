@@ -106,8 +106,11 @@ Success Response
     "db_acc_no": 113220025612
   }
 }
-``` 
+```
+ 
 Error Response
+```json
+
 {
   "status": "E",
   "code": 1001,
