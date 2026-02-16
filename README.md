@@ -127,6 +127,7 @@ Calculates insurance price and excess for a vehicle.
 Uses the same request body structure as Create Policy.
 
 Success Response
+```json
 {
   "status": "S",
   "code": 0,
@@ -134,7 +135,9 @@ Success Response
   "price": "1240",
   "excess": "3000"
 }
+```
 Error Response
+
 {
   "status": "E",
   "code": 7,
