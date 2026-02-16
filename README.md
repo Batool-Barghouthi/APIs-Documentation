@@ -88,6 +88,7 @@ Triggers the underwriting workflow automatically.
     ]
   }
 }
+```
 ```json
 Success Response
 {
