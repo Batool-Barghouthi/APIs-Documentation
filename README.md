@@ -89,7 +89,6 @@ Triggers the underwriting workflow automatically.
   }
 }
 ```
-
 Success Response
 ```json
 {
@@ -110,8 +109,7 @@ Success Response
   }
 }
 ```
- 
-## Error Response
+ Error Response
 ```json
 
 {
@@ -119,10 +117,12 @@ Success Response
   "code": 1001,
   "message": "CUSTOMER_ID is required"
 }
-Motor Underwriting – Calculate Price
-Endpoint
+```
+## Motor Underwriting – Calculate Price
+### Endpoint
 POST /ords/nic/motorUw/calculate_price
-Description
+
+## Description
 Calculates insurance price and excess for a vehicle.
 Uses the same request body structure as Create Policy.
 
