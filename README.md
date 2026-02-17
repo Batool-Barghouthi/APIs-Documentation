@@ -39,14 +39,11 @@ Each response item represents a single form field and includes:
 - Whether the field is required
 - Lookup (List of Values) information
 - Parent–child dependency (if applicable)
-
+- remarks contains if the list special api (means its not listed in the lockups)
 ### Query Parameters
 Query Params
 Name	Type	Required
 p_code	number	Yes
-```json
-
-```
 Success Response
 ```json
    {
