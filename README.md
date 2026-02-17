@@ -619,6 +619,7 @@ The drivers array can contain one or multiple drivers in a single request.
 
 ### Endpoint
 ---
+GET /ords/nic/customer_balance/get_balance
 
 ### Description
 
