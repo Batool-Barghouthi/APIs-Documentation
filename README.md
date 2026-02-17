@@ -23,6 +23,46 @@ http://172.16.2.160:8889
 | Content-Type | application/json |
 
 ---
+## Form Builder API 
+
+### Endpoint
+
+GET /ords/nic/docs/get_api_info
+
+### Description
+
+Returns all metadata required to dynamically build a user form.  
+Each response item represents a single form field and includes:
+
+- Field name and label
+- Data type
+- Whether the field is required
+- Lookup (List of Values) information
+- Parent–child dependency (if applicable)
+
+### Query Parameters
+Query Params
+Name	Type	Required
+p_code	number	Yes
+```json
+
+```
+Success Response
+```json
+   {
+            "code": 271,
+            "field_name": "SCO_MO_SP_USE",
+            "label": "الاستعمال الخاص",
+            "data_type": "NUMBER",
+            "required": 1,
+            "list_code": null,
+            "remarks_type": 2,
+            "remarks": "lockup/get_sp_use",
+            "parent_code": null
+        }
+```
+
+
 
 ## Motor Underwriting – Create Policy
 
@@ -362,7 +402,7 @@ Error Response
 }
 ```
 
-## Travel – Insert Travel Coupon
+## General Insurance  – Insert Travel Coupon
 
 ### Endpoint
 
@@ -414,3 +454,43 @@ Error Response
   "message": "Invalid customer ID or date range"
 }
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
