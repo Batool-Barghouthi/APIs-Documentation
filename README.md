@@ -1,10 +1,8 @@
-
+---
 title: NIC APIs Documentation
 description: NIC ORDS APIs for Underwriting , General Insurance AND Customer Information
 ---
-## Postman Collection
 
-Import the attached file into Postman 
 
 ## Contents
 
