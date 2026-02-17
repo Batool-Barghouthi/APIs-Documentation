@@ -16,6 +16,7 @@ description: NIC ORDS APIs for Underwriting , General Insurance AND Customer Inf
 - [Add Driver to Policy Request API](#add-driver-to-policy-request-api)
 - [Customer Balance API](#customer-balance-api)
 - [Special Use Lookup API](#special-use-lookup-api)
+- [Print Policy Report](#special-use-lookup-api)
 
   
 # NIC APIs Documentation
