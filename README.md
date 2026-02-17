@@ -763,6 +763,22 @@ The response is a binary **PDF** (`application/pdf`) and can be opened inline in
 ```
 
 
+## 🔌 API Testing (Postman)
+
+You can import all NIC APIs directly into **Postman** using the collection below.
+
+### One-Click Import (Recommended)
+
+👉 https://raw.githubusercontent.com/<ORG>/<REPO>/main/postman/policy_APIs.postman_collection.json
+
+**Steps:**
+1. Open Postman
+2. Click **Import**
+3. Choose **Link**
+4. Paste the URL above
+5. Click **Continue**
+
+The full NIC APIs collection will be added automatically.
 
 
 
