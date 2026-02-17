@@ -653,6 +653,30 @@ The response supports pagination metadata and standard ORDS navigation links.
   ]
 }
 ```
+## Special Use Lookup API
+
+### Endpoint
+GET /ords/nic/lockup/get_sp_use
+
+---
+
+### Description
+
+Returns the list of **special vehicle use types** based on the provided plate type.  
+This API is commonly used to populate **dropdown lists** in dynamic forms.
+
+---
+
+### Query Parameters
+
+| Parameter | Type | Required | Description |
+|----------|------|----------|-------------|
+| PLATE_TYPE | Number | Yes | Vehicle plate type code |
+
+---
+
+### 
+
 
 
 
