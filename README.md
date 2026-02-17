@@ -362,8 +362,8 @@ Error Response
 }
 ```
 
-Travel – Insert Travel Coupon
-Endpoint
+## Travel – Insert Travel Coupon
+### Endpoint
 POST /ords/nic/TRAVEL_COUPON/CreateCoupon
 
 Description
@@ -403,7 +403,6 @@ Success Response
     "message": "Travel coupon created successfully",
     "Status": "S"
 }
-
 ```
 Error Response
 ```json
