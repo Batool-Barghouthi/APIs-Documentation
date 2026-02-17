@@ -728,9 +728,46 @@ This API is commonly used to populate **dropdown lists** in dynamic forms.
     }
   ]
 }
+```
 
 
+##  Print Policy Report (JasperServer)
 
+### Endpoint
+POST /ords/nic/reports/print_policy
+
+
+---
+
+### Description
+
+Generates and returns a **PDF policy document** using JasperServer.  
+The response is a binary **PDF** (`application/pdf`) and can be opened inline in the browser or downloaded.
+
+---
+
+### Headers
+
+| Header | Value |
+|-------|------|
+| Content-Type | application/json |
+| Accept | application/pdf |
+
+---
+
+### Request Body
+
+```json
+{
+  "BRANCH": 10,
+  "OFFICE": 10,
+  "DOC_NO": 561687,
+  "DOC_UW_YEAR": 2025,
+  "DOC_TYPE": 1,
+  "MAJ_INS_TYPE": 33,
+  "MIN_INS_TYPE": 3
+}
+```
 
 
 
