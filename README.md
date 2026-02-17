@@ -1,8 +1,13 @@
 ---
 title: NIC APIs Documentation
-description: NIC ORDS APIs for Motor Underwriting and Travel Services
+description: NIC ORDS APIs for Underwriting , General Insurance AND Customer Information
 ---
+## Contents
 
+- [Form Builder API](#form-builder-api)
+- [Add Driver to Policy Request API](#add-driver-to-policy-request-api)
+- [Customer Balance API](#customer-balance-api)
+- 
 # NIC APIs Documentation
 
 This documentation describes the NIC ORDS APIs used for Motor Underwriting and Travel Coupon services.
