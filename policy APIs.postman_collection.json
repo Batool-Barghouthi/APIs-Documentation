@@ -1,0 +1,378 @@
+{
+  "info": {
+    "_postman_id": "9bbdddc3-7fb6-42d3-bbbc-10ec83777d84",
+    "name": "policy APIs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "29015841"
+  },
+  "item": [
+    {
+      "name": "create_policy",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"kyc\": {\r\n    \"CUSTOMER_ID\": 406213058,\r\n    \"ACM_ANAME\": \"Ahmed BARG TT TT\",\r\n    \"ACM_LNAME\": \"Ali BARG\",\r\n    \"ACM_MOBILE_NO\": \"0599123456\",\r\n    \"ACM_EMAIL\": \"ahmed@test.com\",\r\n    \"ACM_ADDRESS\": \"Ramallah\",\r\n    \"CUST_NATIONALITY\": 275,\r\n    \"CUST_BIRTH_DATE\": \"01-01-1990\",\r\n    \"CUST_GENDER\": 1,\r\n    \"CUST_MOBILE\": \"0599123456\"\r\n  },\r\n  \"policy\": {\r\n    \"MST_INS_ST_DT\": \"17-02-2026\",\r\n    \"MST_INS_ED_DT\": \"28-01-2027\",\r\n    \"MST_MIN_INS_TYPE\": 3,\r\n    \"SCO_MO_MAKE\": 1,\r\n    \"SCO_LOCATION_GEO_AREA\": 1,\r\n    \"SCO_MO_PRICE_LOC\": 1,\r\n    \"SCO_MO_PLATE_NO\": \"p 2342\",\r\n    \"SCO_MO_CHAS_NO\": \"45FGD3242352524H457\",\r\n    \"SCO_FSUM_INSURED\": 35000,\r\n    \"SCO_MO_PLATE_TYPE\": 1,\r\n    \"SCO_MO_COLOR_CD\": 2,\r\n    \"SCO_MO_MODEL\": 1,\r\n    \"SCO_MO_SEATS\": 5,\r\n    \"SCO_MO_PROD_YEAR\": 2020,\r\n    \"SCO_MO_ENG_SIZE\": 2000,\r\n    \"SCO_MO_SP_USE\": 1,\r\n    \"SCO_MO_ALLOWED_PERSONS\": 5,\r\n    \"SCO_MO_LOAD\": 1 ,\r\n    \"GSD_SYMBOL\":12354,\r\n    \"drivers\": [ { \"name_ar\": \"محمد أحمد\", \"name_en\": \"Mohammad Ahmad\", \"dt\": \"20-09-2000\", \"id\": \"123456789\", \"rsn\": \"2\" }, { \"name_ar\": \"علي حسن\", \"name_en\": \"Ali Hassan\", \"dt\": \"20-06-2025\", \"id\": \"987654321\", \"rsn\": \"1\" } ]\r\n  }\r\n\r\n\r\n\r\n\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://172.16.2.160:8889/ords/nic/motorUw/create_policy",
+          "protocol": "http",
+          "host": [
+            "172",
+            "16",
+            "2",
+            "160"
+          ],
+          "port": "8889",
+          "path": [
+            "ords",
+            "nic",
+            "motorUw",
+            "create_policy"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "error_code",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "system lockups",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "create_travel",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"travel_coupon\": {\r\n    \"p_id\": 406213058,\r\n    \"p_birth_dt\": \"01-01-1990\",\r\n    \"p_ins_st_dt\": \"11-02-2026\",\r\n    \"p_ins_ed_dt\": \"24-02-2026\",\r\n    \"p_passport_id\": 987654,\r\n    \"p_am_can_flag\": 1,\r\n    \"p_mobile_no\": \"0599123456\",\r\n    \"acm_email\": \"test@test.com\",\r\n    \"acm_aname\": \"Ahmed\",\r\n    \"acm_lname\": \"Ali\"\r\n  }\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://172.16.2.160:8889/ords/nic/TRAVEL_COUPON/CreateCoupon",
+          "protocol": "http",
+          "host": [
+            "172",
+            "16",
+            "2",
+            "160"
+          ],
+          "port": "8889",
+          "path": [
+            "ords",
+            "nic",
+            "TRAVEL_COUPON",
+            "CreateCoupon"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get_vehicle_info",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://172.16.2.157:8889/ords/nic/motorUw/vehicle?plate_no=9175098",
+          "protocol": "http",
+          "host": [
+            "172",
+            "16",
+            "2",
+            "157"
+          ],
+          "port": "8889",
+          "path": [
+            "ords",
+            "nic",
+            "motorUw",
+            "vehicle"
+          ],
+          "query": [
+            {
+              "key": "plate_no",
+              "value": "9175098"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "calculate_price",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"kyc\": {\r\n    \"CUSTOMER_ID\": 406213058,\r\n    \"ACM_ANAME\": \"Ahmed BARG TT TT\",\r\n    \"ACM_LNAME\": \"Ali BARG\",\r\n    \"ACM_MOBILE_NO\": \"0599123456\",\r\n    \"ACM_EMAIL\": \"ahmed@test.com\",\r\n    \"ACM_ADDRESS\": \"Ramallah\",\r\n    \"CUST_NATIONALITY\": 275,\r\n    \"CUST_BIRTH_DATE\": \"01-01-1990\",\r\n    \"CUST_GENDER\": 1,\r\n    \"CUST_MOBILE\": \"0599123456\"\r\n  },\r\n  \"policy\": {\r\n    \"MST_INS_ST_DT\": \"29-01-2026\",\r\n    \"MST_INS_ED_DT\": \"28-01-2027\",\r\n    \"MST_MIN_INS_TYPE\": 3,\r\n    \"SCO_MO_MAKE\": 1,\r\n    \"SCO_LOCATION_GEO_AREA\": 1,\r\n    \"SCO_MO_PRICE_LOC\": 1,\r\n    \"SCO_MO_PLATE_NO\": \"p 7711245645\",\r\n    \"SCO_MO_CHAS_NO\": \"45FGDH457\",\r\n    \"SCO_FSUM_INSURED\": 35000,\r\n    \"SCO_MO_PLATE_TYPE\": 1,\r\n    \"SCO_MO_COLOR_CD\": 2,\r\n    \"SCO_MO_MODEL\": 1,\r\n    \"SCO_MO_SEATS\": 5,\r\n    \"SCO_MO_PROD_YEAR\": 2020,\r\n    \"SCO_MO_ENG_SIZE\": 2000,\r\n    \"SCO_MO_SP_USE\": 1,\r\n    \"SCO_MO_ALLOWED_PERSONS\": 5,\r\n    \"SCO_MO_LOAD\": 1 ,\r\n    \"GSD_SYMBOL\":12354,\r\n    \"drivers\": [ { \"name_ar\": \"محمد أحمد\", \"name_en\": \"Mohammad Ahmad\", \"dt\": \"20-09-2000\", \"id\": \"123456789\", \"rsn\": \"1\" }, { \"name_ar\": \"علي حسن\", \"name_en\": \"Ali Hassan\", \"dt\": \"20-06-2025\", \"id\": \"987654321\", \"rsn\": \"1\" } ]\r\n  }\r\n\r\n\r\n\r\n\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://172.16.2.160:8889/ords/nic/motorUw/calculate_price",
+          "protocol": "http",
+          "host": [
+            "172",
+            "16",
+            "2",
+            "160"
+          ],
+          "port": "8889",
+          "path": [
+            "ords",
+            "nic",
+            "motorUw",
+            "calculate_price"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get_active_policies",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://172.16.2.160:8889/ords/nic/polices/motor_policies?P_DWH_CUST_ID=914299334",
+          "protocol": "http",
+          "host": [
+            "172",
+            "16",
+            "2",
+            "160"
+          ],
+          "port": "8889",
+          "path": [
+            "ords",
+            "nic",
+            "polices",
+            "motor_policies"
+          ],
+          "query": [
+            {
+              "key": "P_DWH_CUST_ID",
+              "value": "914299334",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "add_driver",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": " {\"BRANCH\": 5,\r\n    \"POLICY_YEAR\": 1 ,\r\n    \"POLICY_NO\":12354,\r\n    \"drivers\": [ { \"name_ar\": \"محمد أحمد\", \"name_en\": \"Mohammad Ahmad\", \"dt\": \"20-09-2000\", \"id\": \"123456789\", \"rsn\": \"2\" }, { \"name_ar\": \"علي حسن\", \"name_en\": \"Ali Hassan\", \"dt\": \"20-06-2025\", \"id\": \"987654321\", \"rsn\": \"1\" } ]}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://172.16.2.157:8889/ords/nic/motorUw/drivers",
+          "protocol": "http",
+          "host": [
+            "172",
+            "16",
+            "2",
+            "157"
+          ],
+          "port": "8889",
+          "path": [
+            "ords",
+            "nic",
+            "motorUw",
+            "drivers"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get_cust_balance",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://172.16.2.160:8889/ords/nic/customer_balance/get_balance?CUST_ID=406213058",
+          "protocol": "http",
+          "host": [
+            "172",
+            "16",
+            "2",
+            "160"
+          ],
+          "port": "8889",
+          "path": [
+            "ords",
+            "nic",
+            "customer_balance",
+            "get_balance"
+          ],
+          "query": [
+            {
+              "key": "CUST_ID",
+              "value": "406213058",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "api_form_builder",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://172.16.2.160:8889/ords/nic/docs/get_api_info?p_code=1",
+          "protocol": "http",
+          "host": [
+            "172",
+            "16",
+            "2",
+            "160"
+          ],
+          "port": "8889",
+          "path": [
+            "ords",
+            "nic",
+            "docs",
+            "get_api_info"
+          ],
+          "query": [
+            {
+              "key": "p_code",
+              "value": "1",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get_allowed_person_lockup",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://172.16.2.160:8889/ords/nic/lockup/get_allowed_person",
+          "protocol": "http",
+          "host": [
+            "172",
+            "16",
+            "2",
+            "160"
+          ],
+          "port": "8889",
+          "path": [
+            "ords",
+            "nic",
+            "lockup",
+            "get_allowed_person"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get_sp_use",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://172.16.2.160:8889/ords/nic/lockup/get_sp_use?PLATE_TYPE=1",
+          "protocol": "http",
+          "host": [
+            "172",
+            "16",
+            "2",
+            "160"
+          ],
+          "port": "8889",
+          "path": [
+            "ords",
+            "nic",
+            "lockup",
+            "get_sp_use"
+          ],
+          "query": [
+            {
+              "key": "PLATE_TYPE",
+              "value": "1",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "print_policy",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://172.16.2.160:8889/ords/nic/polices/print",
+          "protocol": "http",
+          "host": [
+            "172",
+            "16",
+            "2",
+            "160"
+          ],
+          "port": "8889",
+          "path": [
+            "ords",
+            "nic",
+            "polices",
+            "print"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
