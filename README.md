@@ -1,8 +1,7 @@
 ---
 title: NIC APIs Documentation
-description: NIC ORDS APIs for Underwriting , General Insurance AND Customer Information
+description: NIC ORDS APIs for Underwriting, General Insurance, and Customer Information
 ---
-
 
 ## Contents
 
