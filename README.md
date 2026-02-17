@@ -455,7 +455,7 @@ Error Response
 
 ---
 ## Get Customer Policies
-Endpoint
+### Endpoint
 GET /ords/nic/polices/motor_policies
 ### Description
 this API returns all motor active policies 
@@ -540,15 +540,79 @@ Success Response
 
 
 ```
+---
+## Add Driver to Policy Request API
+
+### Endpoint
 
 
+---
 
+### Description
 
+Creates a **request to add one or more drivers** to an existing motor policy.  
+The request is submitted to the underwriting workflow for approval.
 
+The API:
+- Validates policy information
+- Validates driver details
+- Creates an approval request
+- Triggers the workflow and notification process
 
+---
 
+### Request Body
 
+```json
+{
+  "BRANCH": 5,
+  "POLICY_YEAR": 1,
+  "POLICY_NO": 12354,
+  "drivers": [
+    {
+      "name_ar": "محمد أحمد",
+      "name_en": "Mohammad Ahmad",
+      "dt": "20-09-2000",
+      "id": "123456789",
+      "rsn": "2"
+    },
+    {
+      "name_ar": "علي حسن",
+      "name_en": "Ali Hassan",
+      "dt": "20-06-2025",
+      "id": "987654321",
+      "rsn": "1"
+    }
+  ]
+}
+```
 
+| Field       | Type   | Required | Description              |
+| ----------- | ------ | -------- | ------------------------ |
+| BRANCH      | Number | Yes      | Policy branch code       |
+| POLICY_YEAR | Number | Yes      | Policy underwriting year |
+| POLICY_NO   | Number | Yes      | Policy number            |
+
+| Field   | Type                | Required | Description                |
+| ------- | ------------------- | -------- | -------------------------- |
+| name_ar | String              | Yes      | Driver full name (Arabic)  |
+| name_en | String              | Yes      | Driver full name (English) |
+| dt      | String (DD-MM-YYYY) | Yes      | Driver date of birth       |
+| id      | String              | Yes      | Driver national ID         |
+| rsn     | String              | Yes      | Driver reason code         |
+
+> **Note** 
+The drivers array can contain one or multiple drivers in a single request.
+
+```json
+{
+  "status": "S",
+  "request_id": 966524,
+  "workflow_id": 900440,
+  "message": "Driver add request created successfully"
+}
+
+```
 
 
 
