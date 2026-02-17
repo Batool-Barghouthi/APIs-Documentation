@@ -188,19 +188,22 @@ Success Response
 {
   "status": "S",
   "code": 0,
-  "message": "Policy created successfully",
+  "message": "Policy price calculated successfully",
   "price": "1240",
   "excess": "3000"
 }
 ```
 Error Response
-
+```json
 {
   "status": "E",
-  "code": 7,
-  "message": "This Vehicle is insured"
+  "code": 210,
+  "message": "SCO_MO_PLATE_TYPE is required"
 }
-Motor Underwriting – Error Codes
+```
+
+## Motor Underwriting – Error Codes
+
 Endpoint
 GET /ords/nic/lockup/error_code
 Query Parameters
