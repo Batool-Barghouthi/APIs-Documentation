@@ -453,6 +453,94 @@ Error Response
 }
 ```
 
+---
+## Get Customer Policies
+Endpoint
+GET /ords/nic/polices/motor_policies
+### Description
+this API returns all motor active policies 
+### Query Parameters
+Name	Type	Required
+P_DWH_CUST_ID	string	Yes
+Success Response
+```json
+{
+    "items": [
+        {
+            "pol_no": 3369,
+            "pol_year": 2025,
+            "maj_ins_type": 34,
+            "min_ins_type": 19,
+            "effective_dt": "2025-12-27T22:00:00Z",
+            "expirstion_dt": "2026-12-26T22:00:00Z",
+            "agent_name": null,
+            "mst_cust_no": 8914299334,
+            "mst_reg_dt": "2025-12-27T22:00:00Z",
+            "mst_reg_time": 34105,
+            "mst_ins_st_time": 34105,
+            "mst_ins_ed_time": 34105,
+            "mst_pol_no": 3369,
+            "mst_pol_year": 2025,
+            "mst_min_ins_type": 19
+        },
+        {
+            "pol_no": 3370,
+            "pol_year": 2025,
+            "maj_ins_type": 34,
+            "min_ins_type": 19,
+            "effective_dt": "2025-12-27T22:00:00Z",
+            "expirstion_dt": "2026-12-26T22:00:00Z",
+            "agent_name": null,
+            "mst_cust_no": 8914299334,
+            "mst_reg_dt": "2025-12-27T22:00:00Z",
+            "mst_reg_time": 34312,
+            "mst_ins_st_time": 34312,
+            "mst_ins_ed_time": 34312,
+            "mst_pol_no": 3370,
+            "mst_pol_year": 2025,
+            "mst_min_ins_type": 19
+        },
+        {
+            "pol_no": 3371,
+            "pol_year": 2025,
+            "maj_ins_type": 34,
+            "min_ins_type": 19,
+            "effective_dt": "2025-12-27T22:00:00Z",
+            "expirstion_dt": "2026-12-26T22:00:00Z",
+            "agent_name": null,
+            "mst_cust_no": 8914299334,
+            "mst_reg_dt": "2025-12-27T22:00:00Z",
+            "mst_reg_time": 34442,
+            "mst_ins_st_time": 34442,
+            "mst_ins_ed_time": 34442,
+            "mst_pol_no": 3371,
+            "mst_pol_year": 2025,
+            "mst_min_ins_type": 19
+        },
+        {
+            "pol_no": 3372,
+            "pol_year": 2025,
+            "maj_ins_type": 34,
+            "min_ins_type": 19,
+            "effective_dt": "2025-12-27T22:00:00Z",
+            "expirstion_dt": "2026-12-26T22:00:00Z",
+            "agent_name": null,
+            "mst_cust_no": 8914299334,
+            "mst_reg_dt": "2025-12-27T22:00:00Z",
+            "mst_reg_time": 34543,
+            "mst_ins_st_time": 34543,
+            "mst_ins_ed_time": 34543,
+            "mst_pol_no": 3372,
+            "mst_pol_year": 2025,
+            "mst_min_ins_type": 19
+        }
+]
+}
+
+
+
+```
+
 
 
 
