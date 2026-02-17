@@ -615,6 +615,44 @@ The drivers array can contain one or multiple drivers in a single request.
 ```
 
 
+## Customer Balance API
+
+### Endpoint
+---
+
+### Description
+
+Returns the list of customer accounts along with their current balances.  
+The response supports pagination metadata and standard ORDS navigation links.
+
+---
+
+### Query Parameters
+
+| Parameter | Type | Required | Description |
+|----------|------|----------|-------------|
+| CUST_ID | Number | Yes | Customer identifier (National ID / Customer ID) |
+
+---
+### Success Response
+
+```json
+{
+  "items": [
+    {
+      "acm_no": 113220025612,
+      "acm_aname": "بتول",
+      "balance": "0"
+    },
+    {
+      "acm_no": 113210043218,
+      "acm_aname": "بتول",
+      "balance": "0"
+    }
+  ]
+}
+```
+
 
 
 
