@@ -2,6 +2,10 @@
 title: NIC APIs Documentation
 description: NIC ORDS APIs for Underwriting , General Insurance AND Customer Information
 ---
+
+# NIC APIs Documentation
+This documentation describes the NIC ORDS APIs used for Motor Underwriting and Travel Coupon services.
+
 ## Contents
 
 - [Form Builder API](#form-builder-api)
@@ -18,11 +22,6 @@ description: NIC ORDS APIs for Underwriting , General Insurance AND Customer Inf
 - [Special Use Lookup API](#special-use-lookup-api)
 - [Print Policy Report](#print-policy-report-jasperserver)
 
-
-  
-# NIC APIs Documentation
-
-This documentation describes the NIC ORDS APIs used for Motor Underwriting and Travel Coupon services.
 
 ---
 ## Base URL
