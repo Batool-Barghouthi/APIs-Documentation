@@ -212,6 +212,7 @@ Query Parameters
 Name	Type	Required
 p_code	number	Yes
 Success Response
+```json
 {
     "items": [
         {
@@ -240,7 +241,8 @@ Success Response
             "code": 5
         }
         ]
-   } 
+   }
+```
 System Lookups
 Endpoint
 GET /ords/nic/lockup/getdata
