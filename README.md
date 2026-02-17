@@ -204,21 +204,43 @@ Error Response
 
 ## Motor Underwriting – Error Codes
 
-Endpoint
+### Endpoint
+
 GET /ords/nic/lockup/error_code
+
 Query Parameters
 Name	Type	Required
 p_code	number	Yes
 Success Response
 {
-  "items": [
-    {
-      "error_ar": "تاريخ إنتهاء التأمين يجب أن يكون أكبر من تاريخ بدء التأمين",
-      "error_en": "Insurance End Date Must Be Greater Than Inception Date",
-      "code": 1
-    }
-  ]
-}
+    "items": [
+        {
+            "name_ar": "تاريخ إنتهاء التأمين يجب أن يكون أكبر من تاريخ بدء التأمين",
+            "name_en": "Insurance End Date Must Be Greater Than Inception Date",
+            "code": 1
+        },
+        {
+            "name_ar": "المؤمن ضمن القائمة السوداء يرجى مراجعة دائرة الاكتتاب",
+            "name_en": "The customer is on the company’s blacklist.",
+            "code": 2
+        },
+        {
+            "name_ar": "تم تجاوز سقف الذمم المسموح يرجى مراجعة المحاسبة",
+            "name_en": "The allowed credit ceiling has been exceeded. Please contact the accounting department.",
+            "code": 3
+        },
+        {
+            "name_ar": "مشكلة في حجز الشهادة للبوليصة",
+            "name_en": "A problem occured in Reserve Certification",
+            "code": 4
+        },
+        {
+            "name_ar": "رقم الشاصي لا يحتوي سوى حروف وأرقام",
+            "name_en": "Chasi No only contains Alphabetic and numbers",
+            "code": 5
+        }
+        ]
+   } 
 System Lookups
 Endpoint
 GET /ords/nic/lockup/getdata
@@ -228,10 +250,12 @@ lockup_code	number	Yes
 Get Vehicle Information
 Endpoint
 GET /ords/nic/motorUw/vehicle
-Query Parameters
+### Query Parameters
 Name	Type	Required
 plate_no	string	Yes
+
 Success Response
+```json
 {
   "status": "S",
   "vehicle_info": {
@@ -242,11 +266,15 @@ Success Response
     "COLOR_NAME_AR": "احمر"
   }
 }
+```
+```json
 Error Response
 {
   "status": "E",
   "message": "Vehicle not found"
 }
+```
+
 Travel – Insert Travel Coupon
 Endpoint
 POST /ords/nic/create_travel/insert_travel_coupon
