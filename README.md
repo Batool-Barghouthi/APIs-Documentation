@@ -243,19 +243,69 @@ Success Response
         ]
    }
 ```
-System Lookups
-Endpoint
+## System Lookups
+### Endpoint
+
 GET /ords/nic/lockup/getdata
-Query Parameters
+### Query Parameters
 Name	Type	Required
 lockup_code	number	Yes
-Get Vehicle Information
+for example list of insurance types for item MST_MIN_INS_TYPE is lockup_code = 233  
+Success Response
+```json
+{
+    "items": [
+        {
+            "name_ar": "ACT",
+            "name_en": "ACT",
+            "code": 1
+        },
+        {
+            "name_ar": "ACT+TP",
+            "name_en": "ACT+TP",
+            "code": 3
+        },
+        {
+            "name_ar": "COMP+TP",
+            "name_en": "COMP+TP",
+            "code": 5
+        },
+        {
+            "name_ar": "ACT+TP+COMP",
+            "name_en": "ACT+TP+COMP",
+            "code": 6
+        },
+        {
+            "name_ar": "VIP II",
+            "name_en": "VIP II",
+            "code": 7
+        },
+        {
+            "name_ar": "TP",
+            "name_en": "TP",
+            "code": 8
+        },
+        {
+            "name_ar": "COMP",
+            "name_en": "COMP",
+            "code": 9
+        },
+        {
+            "name_ar": "P.V",
+            "name_en": "P.V",
+            "code": 11
+        }
+    ]
+}
+
+```
+
+## Get Vehicle Information
 Endpoint
 GET /ords/nic/motorUw/vehicle
 ### Query Parameters
 Name	Type	Required
 plate_no	string	Yes
-
 Success Response
 ```json
 {
@@ -268,7 +318,46 @@ Success Response
     "COLOR_NAME_AR": "احمر"
   }
 }
+
+
+
+
 ```
+## Vehicle Field Mapping
+
+| Field | Mapping System Field |
+|------|----------------------|
+| LICENSE_NO | NONE |
+| PRODUCTION_YEAR | SCO_MO_PROD_YEAR |
+| CARLICENSE_EXPIRY_DATE | NONE |
+| REGISTRY_DATE | NONE |
+| OWNER_NAME_AR | NONE |
+| OWNER_CODE | NONE |
+| VEHICLE_NO | NONE |
+| VEHICLE_TYPE_NAME_AR | SCO_MO_PLATE_TYPE |
+| CHASSIS_NO | SCO_MO_CHAS_NO |
+| VEHICLE_ORIGIN_NAME_AR | NONE |
+| REGISTRY_TYPE_NAME_AR | NONE |
+| ENGINE_FUEL_TYPE_NAME_AR | NONE |
+| ENGINE_NO | SCO_MO_ENG_NO |
+| ENGINE_SIZE | SCO_MO_ENG_SIZE |
+| ENGINE_TYPE | NONE |
+| TOTAL_WEIGHT | SCO_MO_LOAD |
+| MANUFACTURER_NAME_AR | SCO_MO_MAKE |
+| ENGINE_MANUFACTURER_NAME_AR | NONE |
+| FORCE_DISTRIBUTION_NAME_AR | NONE |
+| BRAND_NAME | GSD_VEHICLE_TYPE |
+| COLOR_NAME_AR | SCO_MO_COLOR_CD |
+| TRUCK_HOOK_P | NONE |
+| SEATS_NEAR_DRIVER | NONE |
+| TOTAL_SEATS | SCO_MO_SEATS |
+| FRONT_WHEELS | NONE |
+| BACK_WHEELS | NONE |
+
+
+
+
+
 ```json
 Error Response
 {
