@@ -4,7 +4,7 @@ description: NIC ORDS APIs for Underwriting , General Insurance AND Customer Inf
 ---
 ## Postman Collection
 
-Import the attached into Postman using this link:
+Import the attached file into Postman 
 
 ## Contents
 
