@@ -16,7 +16,8 @@ description: NIC ORDS APIs for Underwriting , General Insurance AND Customer Inf
 - [Add Driver to Policy Request API](#add-driver-to-policy-request-api)
 - [Customer Balance API](#customer-balance-api)
 - [Special Use Lookup API](#special-use-lookup-api)
-- [Print Policy Report](#special-use-lookup-api)
+- [Print Policy Report](#print-policy-report-jasperserver)
+
 
   
 # NIC APIs Documentation
@@ -24,14 +25,9 @@ description: NIC ORDS APIs for Underwriting , General Insurance AND Customer Inf
 This documentation describes the NIC ORDS APIs used for Motor Underwriting and Travel Coupon services.
 
 ---
-
 ## Base URL
-
 http://172.16.2.160:8889
-
-
 ---
-
 ## Common Headers
 
 | Header | Value |
