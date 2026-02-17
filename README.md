@@ -89,6 +89,60 @@ Triggers the underwriting workflow automatically.
   }
 }
 ```
+
+## KYC Object Fields
+
+| Field Name | Type | Required | Description |
+|-----------|------|----------|-------------|
+| CUSTOMER_ID | Number | Yes | National ID / Customer identifier |
+| ACM_ANAME | String | Yes | Customer Arabic full name |
+| ACM_LNAME | String | Yes | Customer English last name |
+| ACM_MOBILE_NO | String | Yes | Mobile number |
+| ACM_EMAIL | String | Yes | Email address |
+| ACM_ADDRESS | String | Yes | Address |
+| CUST_NATIONALITY | Number | Yes | Nationality code (e.g. 708) |
+| CUST_BIRTH_DATE | String (DD-MM-YYYY) | Yes | Date of birth |
+| CUST_GENDER | Number | Yes | 1 = Male, 2 = Female |
+| CUST_MOBILE | String | Yes | Customer mobile number |
+
+---
+
+## Policy Object Fields
+
+### Policy Information
+
+| Field Name | Type | Required | Description |
+|-----------|------|----------|-------------|
+| MST_INS_ST_DT | String (DD-MM-YYYY) | Yes | Insurance start date |
+| MST_INS_ED_DT | String (DD-MM-YYYY) | Yes | Insurance end date |
+| MST_MIN_INS_TYPE | Number | Yes | Insurance type code |
+
+---
+
+### Vehicle Information
+
+| Field Name | Type | Required | Description |
+|-----------|------|----------|-------------|
+| SCO_MO_MAKE | Number | Yes | Vehicle make code |
+| SCO_MO_MODEL | Number | Yes | Vehicle model code |
+| SCO_MO_PROD_YEAR | Number | Yes | Production year |
+| SCO_MO_COLOR_CD | Number | Yes | Vehicle color code |
+| SCO_MO_SEATS | Number | Yes | Number of seats |
+| SCO_MO_ENG_SIZE | Number | Yes | Engine capacity (CC) |
+| SCO_MO_CHAS_NO | String | Yes | Chassis number |
+| SCO_MO_PLATE_NO | String | Yes | Plate number |
+| SCO_MO_PLATE_TYPE | Number | Yes | Plate type |
+| SCO_LOCATION_GEO_AREA | Number | Yes | Geographic area |
+| SCO_MO_PRICE_LOC | Number | Yes | Location code |
+| SCO_FSUM_INSURED | Number | Yes / Conditional | Vehicle price (depends on insurance type) |
+| SCO_MO_SP_USE | Number | Yes | Special use code |
+| SCO_MO_ALLOWED_PERSONS | Number | Yes | Allowed passengers |
+| SCO_MO_LOAD | Number | Yes / Conditional | Manual value |
+| GSD_SYMBOL | Number | Yes / Conditional | Policy symbol |
+
+> **Note**  
+> Fields marked as **Yes / Conditional** are required depending on the selected insurance type.
+
 Success Response
 ```json
 {
