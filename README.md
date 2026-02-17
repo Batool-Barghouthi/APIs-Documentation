@@ -363,7 +363,9 @@ Error Response
 ```
 
 ## Travel – Insert Travel Coupon
+
 ### Endpoint
+
 POST /ords/nic/TRAVEL_COUPON/CreateCoupon
 
 Description
