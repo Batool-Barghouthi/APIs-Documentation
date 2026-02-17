@@ -7,7 +7,12 @@ description: NIC ORDS APIs for Underwriting , General Insurance AND Customer Inf
 - [Form Builder API](#form-builder-api)
 - [Add Driver to Policy Request API](#add-driver-to-policy-request-api)
 - [Customer Balance API](#customer-balance-api)
-- 
+- [Form Builder API](#form-builder-api)
+- [Add Driver to Policy Request API](#add-driver-to-policy-request-api)
+- [Customer Balance API](#customer-balance-api)
+
+
+  
 # NIC APIs Documentation
 
 This documentation describes the NIC ORDS APIs used for Motor Underwriting and Travel Coupon services.
@@ -679,9 +684,45 @@ This API is commonly used to populate **dropdown lists** in dynamic forms.
 | PLATE_TYPE | Number | Yes | Vehicle plate type code |
 
 ---
+### Success Response
 
-### 
-
+```json
+{
+  "items": [
+    {
+      "disp": "1-PRIVATE-خصوصي",
+      "spu_sp_use": 1
+    },
+    {
+      "disp": "3-RENTAL CARS- تاجير",
+      "spu_sp_use": 3
+    },
+    {
+      "disp": "5-TEST PLATE-لوحة اختبار",
+      "spu_sp_use": 5
+    },
+    {
+      "disp": "10-DRIVING SCHOOL-تعليم سواقة",
+      "spu_sp_use": 10
+    },
+    {
+      "disp": "11-ANY CAR-اي سيارة",
+      "spu_sp_use": 11
+    },
+    {
+      "disp": "12-TEST SERVICE-لوحة اختبار كراج",
+      "spu_sp_use": 12
+    },
+    {
+      "disp": "13-PRIVATE - ELECTRIC-خصوصي - كهرباء",
+      "spu_sp_use": 13
+    },
+    {
+      "disp": "14-Elec. DRIVING SCHOOL-كهربائية/ تعليم سواقة",
+      "spu_sp_use": 14
+    }
+  ]
+}
 
 
 
