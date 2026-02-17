@@ -11,7 +11,7 @@ This documentation describes the NIC ORDS APIs used for Motor Underwriting and T
 
 ## Base URL
 
-http://172.16.2.157:8889
+http://172.16.2.160:8889
 
 
 ---
@@ -118,6 +118,9 @@ Success Response
   "message": "CUSTOMER_ID is required"
 }
 ```
+
+
+
 ## Motor Underwriting – Calculate Price
 ### Endpoint
 POST /ords/nic/motorUw/calculate_price
