@@ -2,6 +2,17 @@
 title: NIC APIs Documentation
 description: NIC ORDS APIs for Underwriting , General Insurance AND Customer Information
 ---
+## Postman Collection
+
+Import into Postman using this link:
+
+`https://raw.githubusercontent.com/Batool-Barghouthi/APIs-Documentation/main/policy%20APIs.postman_collection.json`
+
+Steps:
+1. Postman → Import
+2. Link
+3. Paste URL
+4. Import
 
 ## Contents
 
