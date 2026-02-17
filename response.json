@@ -1,0 +1,17 @@
+{
+  "Status": "S",
+  "code": 0,
+  "message": "Motor policy created successfully",
+  "workflow_req_id": 966439,
+  "policy_info": {
+    "doc_no": 900008,
+    "branch": 10,
+    "office": 10,
+    "uw_year": 2026,
+    "doc_type": 1,
+    "maj_ins_type": 33,
+    "min_ins_type": 3,
+    "cust_no": 8406213058,
+    "db_acc_no": 113220025612
+  }
+}
