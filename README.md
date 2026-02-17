@@ -354,25 +354,23 @@ Success Response
 | FRONT_WHEELS | NONE |
 | BACK_WHEELS | NONE |
 
-
-
-
-
-```json
 Error Response
+```json
 {
   "status": "E",
-  "message": "Vehicle not found"
+  "message": "No response returned from API"
 }
 ```
 
 Travel – Insert Travel Coupon
 Endpoint
-POST /ords/nic/create_travel/insert_travel_coupon
+POST /ords/nic/TRAVEL_COUPON/CreateCoupon
+
 Description
 Creates a travel coupon for a customer.
 
 Request Body
+```json
 {
   "travel_coupon": {
     "p_id": 406213058,
@@ -387,16 +385,31 @@ Request Body
     "acm_lname": "Ali"
   }
 }
+```
 Success Response
+```json
 {
-  "status": "S",
-  "code": 0,
-  "message": "Travel coupon inserted successfully",
-  "coupon_no": "TRV123456"
+    "policy_info": {
+        "doc_no": 48249,
+        "branch": 10,
+        "office": 1,
+        "uw_year": 2026,
+        "doc_type": 1,
+        "maj_ins_type": 34,
+        "min_ins_type": 4,
+        "cust_no": 8406213058,
+        "db_acc_no": 113210014942
+    },
+    "message": "Travel coupon created successfully",
+    "Status": "S"
 }
+
+```
 Error Response
+```json
 {
   "status": "E",
   "code": 1001,
   "message": "Invalid customer ID or date range"
 }
+```
