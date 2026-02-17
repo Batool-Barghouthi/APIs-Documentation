@@ -734,7 +734,7 @@ This API is commonly used to populate **dropdown lists** in dynamic forms.
 ##  Print Policy Report (JasperServer)
 
 ### Endpoint
-POST /ords/nic/reports/print_policy
+POST /ords/nic/polices/print
 
 
 ---
