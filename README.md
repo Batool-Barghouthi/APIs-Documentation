@@ -33,7 +33,7 @@ The request body is the Base64 content of the file; the target directory and fil
 | p_img_code | Number | Yes | Attachment image code. |
 | p_mst_pol_year | Number | Yes | Policy year. |
 | p_mst_pol_no | Number | Yes | Policy number. |
-| p_img_branch | Number | Yes | Attachment branch code. |
+| p_img_branch | Number | Yes | branch code. |
 
 
 **Content-Type**
