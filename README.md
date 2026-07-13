@@ -71,11 +71,6 @@ iVBORw0KGgoAAAANSUhEUgAA...
 
 The response body contains the **Base64-encoded contents** of the requested attachment.
 
----
-
-
-
----
 
 ### Notes
 
