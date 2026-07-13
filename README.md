@@ -73,23 +73,7 @@ The response body contains the **Base64-encoded contents** of the requested atta
 
 ---
 
-### Error Response
 
-```json
-{
-    "status": "E",
-    "message": "Attachment not found."
-}
-```
-
-or
-
-```json
-{
-    "status": "E",
-    "message": "Invalid attachment information."
-}
-```
 
 ---
 
