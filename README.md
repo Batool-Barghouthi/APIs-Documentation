@@ -18,6 +18,23 @@ The request body is the Base64 content of the file; the target directory and fil
 | Content-Type | text/plain | Yes | The request body is Base64 text. |
 | p_directory_name | String | Yes | Oracle DIRECTORY object where the file will be written. |
 | p_file_name | String | Yes | Name to store the uploaded file under. |
+| p_file_name | String | Yes | Name of the attachment file. |
+| p_directory_name | String | Yes | Directory containing the attachment. |
+| p_img_doc_type | Number | Yes | Policy document type. |
+| p_img_doc_min_ins | Number | Yes | Minor insurance type. |
+| p_img_doc_maj_ins | Number | Yes | Major insurance type. |
+| p_img_doc_uw_year | Number | Yes | Policy underwriting year. |
+| p_img_doc_no | Number | Yes | Policy document number. |
+| p_img_doc_office | Number | Yes | Policy office code. |
+| p_img_doc_branch | Number | Yes | Policy branch code. |
+| p_img_type | Number | Yes | Attachment type code. |
+| p_user_number_aims | Number | Yes | User number requesting the attachment. |
+| p_img_file_type | String | Yes | Attachment file type (e.g. pdf, png, jpg). |
+| p_img_code | Number | Yes | Attachment image code. |
+| p_mst_pol_year | Number | Yes | Policy year. |
+| p_mst_pol_no | Number | Yes | Policy number. |
+| p_img_branch | Number | Yes | Attachment branch code. |
+
 
 **Content-Type**
 ```text
