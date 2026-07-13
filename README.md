@@ -50,7 +50,7 @@ The returned Base64 content can be decoded to reconstruct the original file.
 ### Example Request
 
 ```http
-GET {{url}}/ords/nic/polices/ATTACHMENT?p_file_name=bat.png&p_directory_name=shared_dir&p_img_doc_type=1&p_img_doc_min_ins=9&p_img_doc_maj_ins=33&p_img_doc_uw_year=2026&p_img_doc_no=700003&p_img_doc_office=10&p_img_doc_branch=10&p_img_type=9000&p_user_number_aims=1029&p_img_file_type=png&p_img_code=9001&p_mst_pol_year=2026&p_mst_pol_no=700003&p_img_branch=10
+POST {{url}}polices/ATTACHMENT?p_file_name=bat.png&p_directory_name=shared_dir&p_img_doc_type=1&p_img_doc_min_ins=9&p_img_doc_maj_ins=33&p_img_doc_uw_year=2026&p_img_doc_no=569126&p_img_doc_office=10&p_img_doc_branch=10&p_img_type=9000&p_user_number_aims=1029&p_img_file_type=png&p_img_code=9001&p_mst_pol_year=2026&p_mst_pol_no=569126&p_img_branch=10
 ```
 
 ---
