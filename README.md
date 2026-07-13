@@ -1,7 +1,7 @@
 ## Upload Policy Attachment API
 
 ### Endpoint
-POST /ords/nic/BASE64/UPLOAD
+POST /ords/nic/polices/ATTACHMENT
 
 ---
 
@@ -57,7 +57,7 @@ iVBORw0KGgoAAAANSUhEUgAA...
 
 ### Example Request
 ```http
-POST {{url}}BASE64/UPLOAD
+POST {{url}}polices/ATTACHMENT
 Content-Type: text/plain
 p_directory_name: shared_dir
 p_file_name: bat.png
