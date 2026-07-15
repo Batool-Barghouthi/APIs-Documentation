@@ -34,7 +34,7 @@ and returns an `allowed` flag indicating whether policy printing is permitted.
   "MAJ_INS_TYPE": 33,
   "MIN_INS_TYPE": 9
 }
-
+```
 ### Success Response
 **HTTP Status:** `200 OK`
 
@@ -43,28 +43,8 @@ and returns an `allowed` flag indicating whether policy printing is permitted.
 {
   "status": "S",
   "code": 0,
-  "message": "File uploaded successfully",
-  "http_status": 200,
-  "file_name": "bat.png",
-  "directory": "shared_dir"
+  "allowed": 1
 }
 ```
 
----
-
-### Error Response
-**HTTP Status:** `4xx` / `5xx`
-
-**Response Body**
-```json
-{
-  "status": "E",
-  "code": 409,
-  "message": "Upload endpoint returned a non-2xx status",
-  "file_name": "bat.png",
-  "directory": "shared_dir"
-}
-```
-
----
 
