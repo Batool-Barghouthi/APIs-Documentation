@@ -105,8 +105,7 @@ is **not** accepted from the caller.
 | `price` | number | Calculated gross premium |
 | `excess` | number | Policy excess / deductible |
 
-> **To confirm:** the currency of `price` and `excess` (ILS or USD), and whether the
-> figure is gross of stamp duty and supervision fees.
+> **To confirm:** the currency of `price` and `excess` is USD
 
 ---
 
