@@ -258,7 +258,7 @@ All values come straight from the `policy_info` block returned by `/CreateCoupon
 
 ---
 
-## 7. Typical integration flow
+## 5. Typical integration flow
 
 ```
 1. POST TRAVEL_COUPON/calculate_price   → show price + excess to the customer
