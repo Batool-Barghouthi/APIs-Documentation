@@ -198,7 +198,7 @@ failure, and reconcile by `doc_no` afterwards.
 
 ---
 
-## 4. `POST polices/print`
+## 4. `POST TRAVEL_COUPON/print`
 
 Renders the issued policy through JasperReports Server and returns the document.
 
