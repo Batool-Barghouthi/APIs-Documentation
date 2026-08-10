@@ -202,10 +202,9 @@ failure, and reconcile by `doc_no` afterwards.
 
 Renders the issued policy through JasperReports Server and returns the document.
 
-**URL:** `https://api.nic-pal.com:8443/ords/nic/polices/print`
+**URL:** `https://api.nic-pal.com:8443/ords/nic/TRAVEL_COUPON/print`
 **Jasper report:** `POLICY_TRAVEL_INSURANCE`
 
-> Note the module is `polices`, **not** `TRAVEL_COUPON`.
 
 ### Request body
 
