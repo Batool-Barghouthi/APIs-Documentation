@@ -245,15 +245,6 @@ Unlike the other two endpoints, this one takes a **flat** object with no wrapper
 
 All values come straight from the `policy_info` block returned by `/CreateCoupon`.
 
-> ⚠️ **Key casing is critical — and the Postman collection is currently wrong.**
-> The handler reads keys with `l_json.get_number('branch')`, `get_number('doc_no')`,
-> `get_number('uw_year')` and so on — all **lowercase**, and note it is `uw_year`, not
-> `DOC_UW_YEAR`. `JSON_OBJECT_T` key lookup is case-sensitive. The saved Postman
-> request sends `"DOC_NO"`, `"BRANCH"`, `"DOC_UW_YEAR"` in uppercase, so every field
-> resolves to `NULL` and the call fails the required-field check with **HTTP 422**.
-> Either fix the callers to send lowercase (as documented above) or make the handler
-> case-tolerant. See §6.
-
 ### Responses
 
 | HTTP | Body | Meaning |
@@ -262,13 +253,6 @@ All values come straight from the `policy_info` block returned by `/CreateCoupon
 | `400 Bad Request` | `error_type: "JSON_PARSE"` | Body is not valid JSON |
 | `422 Unprocessable Entity` | `error_type: "REQUIRED"` | `doc_no`, `branch`, or `uw_year` missing or null |
 | `500 Internal Server Error` | `error_type: "SERVER"` | Jasper or PL/SQL failure; `details` carries `SQLERRM` |
-
-> ⚠️ **Response body conflict.** `JASPERSERVER.CALL_REPORT` writes the rendered report
-> (PDF bytes) directly to the HTTP response, and the handler then appends a JSON
-> success object to the same stream. The result is a corrupted payload that is neither
-> valid PDF nor valid JSON. The endpoint must either stream the PDF with
-> `Content-Type: application/pdf` and emit no JSON, or return a JSON body containing a
-> download URL / base64 blob. Resolve before publishing to external consumers. See §6.
 
 ---
 
