@@ -2,8 +2,7 @@
 
 **Version:** 1.0
 **Base URL:** `https://api.nic-pal.com:8443/ords/nic/`
-**Schema / Module:** `TRAVEL_COUPON` (pricing & issuance), `polices` (printing)
-**Backing package:** `xx_workflow.gen_api_pkg` (over DB link `TESTDB`)
+**Schema / Module:** `TRAVEL_COUPON` (pricing & insurance), `polices` (printing)
 
 ---
 
@@ -20,19 +19,7 @@
 | Character set | UTF-8 |
 | Cache headers | `Cache-Control: no-cache`, `Pragma: no-cache` |
 
-### Authentication
 
-All endpoints are protected. Callers must present valid ORDS credentials for the
-privilege guarding the `TRAVEL_COUPON` and `polices` modules.
-
-```
-Authorization: Bearer <access_token>
-```
-
-> **To confirm:** whether the guard is a plain ORDS role-based privilege (Basic auth
-> against a mapped role) or an OAuth2 `client_credentials` flow with a token endpoint.
-> If OAuth2, the token URL (`/ords/nic/oauth/token`), `client_id`, and `client_secret`
-> must be added here.
 
 ### Response envelope
 
@@ -285,16 +272,6 @@ All values come straight from the `policy_info` block returned by `/CreateCoupon
 
 ---
 
-## 5. Error reference
-
-| `error_type` | `code` | HTTP | Raised by | Cause |
-|---|---|---|---|---|
-| `JSON_PARSE` | 400 | 200 / 400 | all | Malformed JSON, or missing `travel_coupon` wrapper object |
-| `REQUIRED` | 422 | 422 | `/print` | `doc_no`, `branch`, or `uw_year` null |
-| `TRAVEL_COUPON` | *domain* | 200 | `/CreateCoupon` | Business rule rejection from `gen_api_pkg` |
-| `PLSQL` | — | 200 | `/CreateCoupon` | Unhandled PL/SQL exception; transaction rolled back |
-| `SERVER` | 500 | 200 / 500 | `/calculate_price`, `/print` | Unhandled exception; `details` carries `SQLERRM` |
-
 ### Known domain codes
 
 | Code | Message | Meaning |
@@ -304,42 +281,6 @@ All values come straight from the `policy_info` block returned by `/CreateCoupon
 > The domain code catalogue is incomplete. `gen_api_pkg` should be reviewed and every
 > `code` it can raise listed here, so clients can map codes to localised messages
 > instead of string-matching on `message`.
-
----
-
-## 6. Open issues in the current implementation
-
-Findings from reviewing the ORDS handler bodies. These are implementation defects, not
-documentation gaps — worth closing before the spec is handed to an external integrator.
-
-1. **`/print` key casing mismatch** — handler reads lowercase `branch` / `doc_no` /
-   `uw_year`; the Postman collection sends uppercase `BRANCH` / `DOC_NO` /
-   `DOC_UW_YEAR`. Every request from that collection returns 422. (§4)
-
-2. **`/print` mixes PDF and JSON in one response** — `CALL_REPORT` writes report bytes,
-   then `htp.p(JSON_OBJECT(...))` appends JSON to the same stream. (§4)
-
-3. **`/CreateCoupon` error branch is dead code** — `p_status`, `p_code`, and `p_msg`
-   are declared but never assigned, so they are `NULL`. `IF p_status <> 'S'` evaluates
-   to `NULL`, which is not `TRUE`, so the error block never executes and the raw
-   `v_response` is always returned. Either have
-   `create_travel_coupon_api_fn` return those OUT parameters, or drop the check and
-   rely on the `status` field already inside `v_response`.
-
-4. **`/CreateCoupon` returns `"Status"` not `"status"`** — inconsistent with the other
-   two endpoints. (§3)
-
-5. **No HTTP status line on `/calculate_price` and `/CreateCoupon`** — errors are
-   returned as HTTP 200. Add `owa_util.status_line(...)` as `/print` does, so proxies,
-   monitoring, and standard HTTP client libraries can detect failures.
-
-6. **`/calculate_price` swallows the parse error detail** — its `JSON_PARSE` handler
-   returns a fixed message with no `details`, unlike `/print` which includes `SQLERRM`.
-   Adding it materially shortens integration debugging.
-
-7. **Hard-coded `branch = 10` / `user_no = 1001`** — fine for a single-branch rollout,
-   but will need to come from the authenticated ORDS principal once a second branch or
-   an agent portal goes live.
 
 ---
 
