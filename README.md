@@ -108,15 +108,6 @@ is **not** accepted from the caller.
 > **To confirm:** the currency of `price` and `excess` (ILS or USD), and whether the
 > figure is gross of stamp duty and supervision fees.
 
-### Example
-
-```bash
-curl -X POST "https://api.nic-pal.com:8443/ords/nic/TRAVEL_COUPON/calculate_price" \
-  -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $TOKEN" \
-  -d '{"travel_coupon":{"p_id":406213058,"p_birth_dt":"01-01-1990","p_ins_st_dt":"11-02-2026","p_ins_ed_dt":"24-02-2026","p_passport_id":987654,"p_am_can_flag":1,"p_mobile_no":"0599123456","acm_email":"test@test.com","acm_aname":"Ahmed","acm_lname":"Ali"}}'
-```
-
 ---
 
 ## 3. `POST TRAVEL_COUPON/CreateCoupon`
