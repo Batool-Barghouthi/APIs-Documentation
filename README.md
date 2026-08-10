@@ -79,7 +79,7 @@ creating anything**. Safe to call repeatedly — read-only quotation.
 | `p_ins_st_dt` | string | Yes | Cover start date, `DD-MM-YYYY` |
 | `p_ins_ed_dt` | string | Yes | Cover end date, `DD-MM-YYYY`. Must be ≥ start date; the day span drives the rate band |
 | `p_passport_id` | number | Yes | Passport number |
-| `p_am_can_flag` | number | Yes | Territorial scope. **`1` = USA / Canada included** (higher rate), `0` = worldwide excluding USA / Canada |
+| `p_am_can_flag` | number | Yes | Territorial scope. **`2` = USA / Canada included ** (higher rate), `1` = worldwide excluding USA / Canada |
 | `p_mobile_no` | string | Yes | Mobile number, local format (e.g. `"0599123456"`) |
 | `acm_email` | string | Yes | Customer e-mail |
 | `acm_aname` | string | Yes | First name |
