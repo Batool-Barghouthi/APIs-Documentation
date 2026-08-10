@@ -2,7 +2,7 @@
 
 **Version:** 1.0
 **Base URL:** `https://api.nic-pal.com:8443/ords/nic/`
-**Schema / Module:** `TRAVEL_COUPON` (pricing & insurance), `polices` (printing)
+**Module:** `TRAVEL_COUPON` (pricing, issuance, printing)
 
 ---
 
@@ -15,11 +15,9 @@
 | Protocol | HTTPS |
 | Method | `POST` (all endpoints) |
 | Request `Content-Type` | `application/json` |
-| Response `Content-Type` | `application/json` (except `/print` — see §4) |
+| Response `Content-Type` | `application/json` |
 | Character set | UTF-8 |
 | Cache headers | `Cache-Control: no-cache`, `Pragma: no-cache` |
-
-
 
 ### Response envelope
 
@@ -33,14 +31,14 @@ Every JSON response carries a `status` discriminator:
 | `error_type` | string | Present only when `status = "E"`. See §5 |
 | `details` | string | Present only when `status = "E"`; raw `SQLERRM` or diagnostic text |
 
-> **Important for client implementers:** `/calculate_price` and `/CreateCoupon` do
-> **not** set an HTTP status line — they return **HTTP 200 for both success and
-> failure**. Clients must branch on the `status` field in the body, never on the HTTP
-> status code. Only `/print` sets real HTTP codes (400 / 422 / 500).
 
 ### Date format
 
 All dates are strings in **`DD-MM-YYYY`** format. Example: `"11-02-2026"` = 11 February 2026.
+
+### Currency
+
+`price` and `excess` are expressed in **USD**.
 
 ---
 
@@ -79,7 +77,7 @@ creating anything**. Safe to call repeatedly — read-only quotation.
 | `p_ins_st_dt` | string | Yes | Cover start date, `DD-MM-YYYY` |
 | `p_ins_ed_dt` | string | Yes | Cover end date, `DD-MM-YYYY`. Must be ≥ start date; the day span drives the rate band |
 | `p_passport_id` | number | Yes | Passport number |
-| `p_am_can_flag` | number | Yes | Territorial scope. **`2` = USA / Canada included ** (higher rate), `1` = worldwide excluding USA / Canada |
+| `p_am_can_flag` | number | Yes | Territorial scope. **`2` = USA / Canada included** (higher rate); **`1` = worldwide excluding USA / Canada** |
 | `p_mobile_no` | string | Yes | Mobile number, local format (e.g. `"0599123456"`) |
 | `acm_email` | string | Yes | Customer e-mail |
 | `acm_aname` | string | Yes | First name |
@@ -102,10 +100,8 @@ is **not** accepted from the caller.
 
 | Field | Type | Description |
 |---|---|---|
-| `price` | number | Calculated gross premium |
-| `excess` | number | Policy excess / deductible |
-
-> **To confirm:** the currency of `price` and `excess` is USD
+| `price` | number | Calculated gross premium, USD |
+| `excess` | number | Policy excess / deductible, USD |
 
 ---
 
@@ -175,9 +171,8 @@ payload you priced, so the premium the customer was quoted is the premium booked
 Store the full seven-key composite (`doc_no`, `branch`, `office`, `uw_year`,
 `doc_type`, `maj_ins_type`, `min_ins_type`) — `/print` requires all of it.
 
-> **Naming inconsistency:** this endpoint returns the discriminator as **`"Status"`**
-> (capital S) while every other endpoint returns **`"status"`**. Client parsers must
-> handle both, or the handler should be corrected to emit lowercase `status`. See §6.
+This endpoint returns the discriminator as **`"Status"`** (capital S), while the other
+endpoints return **`"status"`**. Client parsers must handle both.
 
 ### Error response
 
@@ -205,10 +200,10 @@ Renders the issued policy through JasperReports Server and returns the document.
 **URL:** `https://api.nic-pal.com:8443/ords/nic/TRAVEL_COUPON/print`
 **Jasper report:** `POLICY_TRAVEL_INSURANCE`
 
-
 ### Request body
 
 Unlike the other two endpoints, this one takes a **flat** object with no wrapper.
+Keys are lowercase and case-sensitive.
 
 ```json
 {
@@ -245,25 +240,33 @@ All values come straight from the `policy_info` block returned by `/CreateCoupon
 
 ---
 
+## 5. Error reference
+
+### `error_type` values
+
+| `error_type` | Endpoint | Cause |
+|---|---|---|
+| `JSON_PARSE` | all | Malformed JSON, or missing `travel_coupon` wrapper object |
+| `REQUIRED` | `/print` | `doc_no`, `branch`, or `uw_year` null |
+| `TRAVEL_COUPON` | `/CreateCoupon` | Business rule rejection |
+| `PLSQL` | `/CreateCoupon` | Unhandled PL/SQL exception; transaction rolled back |
+| `SERVER` | `/calculate_price`, `/print` | Unhandled exception; `details` carries `SQLERRM` |
+
 ### Known domain codes
 
 | Code | Message | Meaning |
 |---|---|---|
 | `1001` | Invalid customer ID or date range | `p_id` failed validation, or `p_ins_ed_dt` precedes `p_ins_st_dt` / falls outside the permitted window |
 
-> The domain code catalogue is incomplete. `gen_api_pkg` should be reviewed and every
-> `code` it can raise listed here, so clients can map codes to localised messages
-> instead of string-matching on `message`.
-
 ---
 
-## 5. Typical integration flow
+## 6. Typical integration flow
 
 ```
 1. POST TRAVEL_COUPON/calculate_price   → show price + excess to the customer
 2. Customer confirms and pays
 3. POST TRAVEL_COUPON/CreateCoupon      → persist doc_no + the full key set
-4. POST polices/print                   → deliver the coupon document
+4. POST TRAVEL_COUPON/print             → deliver the coupon document
 ```
 
 Steps 1 and 2 are safe to repeat. Step 3 is not — see the idempotency note in §3.
